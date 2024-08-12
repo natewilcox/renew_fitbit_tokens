@@ -23,6 +23,7 @@ jobs:
       
       - name: Create terraform.tfvars file
         run: |
+          cd terraform
           echo 'fitbit_client_id = "${{ secrets.FITBIT_CLIENT_ID }}"' >> terraform.tfvars
           echo 'fitbit_client_secret = "${{ secrets.FITBIT_CLIENT_SECRET }}"' >> terraform.tfvars
           cat terraform.tfvars
@@ -35,4 +36,6 @@ jobs:
           aws-region: us-east-1
       
       - name: Terraform Init
-        run: terraform init
+        run: |
+          cd terraform
+          terraform init
