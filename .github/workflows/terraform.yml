@@ -23,8 +23,8 @@ jobs:
       
       - name: Create terraform.tfvars file
         run: |
-          echo 'client_id = "${{ secrets.FITBIT_CLIENT_ID }}"' >> terraform.tfvars
-          echo 'client_secret = "${{ secrets.FITBIT_CLIENT_SECRET }}"' >> terraform.tfvars
+          echo 'fitbit_client_id = "${{ secrets.FITBIT_CLIENT_ID }}"' >> terraform.tfvars
+          echo 'fitbit_client_secret = "${{ secrets.FITBIT_CLIENT_SECRET }}"' >> terraform.tfvars
           cat terraform.tfvars
 
       - name: Setup AWS Credentials
