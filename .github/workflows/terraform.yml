@@ -22,7 +22,7 @@ jobs:
           terraform_version: 1.9.4
 
       - name: Terraform Init
-        run: terraform 
+        run: terraform init
       
       - name: Setup AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
