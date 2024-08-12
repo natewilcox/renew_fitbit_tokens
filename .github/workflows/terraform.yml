@@ -20,10 +20,13 @@ jobs:
         uses: hashicorp/setup-terraform@v1
         with:
           terraform_version: 1.9.4
-
-      - name: Terraform Init
-        run: terraform init
       
+      - name: Create terraform.tfvars file
+        run: |
+          echo 'client_id = "${{ secrets.FITBIT_CLIENT_ID }}"' >> terraform.tfvars
+          echo 'client_secret = "${{ secrets.FITBIT_CLIENT_SECRET }}"' >> terraform.tfvars
+          cat terraform.tfvars
+
       - name: Setup AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
@@ -31,5 +34,5 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
       
-      - name: Test AWS
-        run: aws s3 ls
+      - name: Terraform Init
+        run: terraform init
