@@ -218,7 +218,7 @@ resource "aws_kms_key" "example" {
 }
 
 resource "aws_secretsmanager_secret" "renew_fitbit_tokens" {
-  name = "api"
+  name = "fitbit-api-creds"
   kms_key_id = aws_kms_key.example.id
 }
 
