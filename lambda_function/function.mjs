@@ -10,7 +10,7 @@ const s3 = new AWS.S3({apiVersion: '2006-03-01'});
 
 const getSecrets = async () => {
 
-    const secret_name = "api";
+    const secret_name = "fitbit-api-creds";
 
     const client = new SecretsManagerClient({
         region: "us-east-2",

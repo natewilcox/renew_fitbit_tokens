@@ -13,5 +13,5 @@ data "aws_security_group" "default" {
 data "archive_file" "renew_fitbit_tokens" {
   type        = "zip"
   source_dir  = "../lambda_function"
-  output_path = "../lambda_function/dist.zip"
+  output_path = "../dist.zip"
 }
