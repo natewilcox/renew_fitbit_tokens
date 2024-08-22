@@ -39,10 +39,10 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
       
-      - name: Terraform Init
+      - name: Execute Terraform
         run: |
           cd terraform
           terraform init
           terraform validate
           terraform plan
-          terraform apply
+          terraform apply -auto-approve
