@@ -39,6 +39,12 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
       
+      - name: Install Node Packages
+        run: |
+          cd lambda-function
+          npm ci
+          cd ../
+
       - name: Execute Terraform
         run: |
           cd terraform
