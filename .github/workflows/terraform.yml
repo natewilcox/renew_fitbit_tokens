@@ -41,8 +41,7 @@ jobs:
       
       - name: Install Node Packages
         run: |
-          ls -ltr
-          cd lambda-function
+          cd lambda_function
           npm ci
           cd ../
 
