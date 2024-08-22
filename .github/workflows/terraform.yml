@@ -12,6 +12,10 @@ jobs:
   terraform:
     runs-on: ubuntu-latest
 
+    env:
+      TF_VAR_client_id=${{ secrets.FITBIT_CLIENT_ID }}
+      TF_VAR_client_secret=${{ secrets.FITBIT_CLIENT_SECRET }}
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -21,12 +25,12 @@ jobs:
         with:
           terraform_version: 1.9.4
       
-      - name: Create terraform.tfvars file
-        run: |
-          cd terraform
-          echo 'fitbit_client_id = "${{ secrets.FITBIT_CLIENT_ID }}"' >> terraform.tfvars
-          echo 'fitbit_client_secret = "${{ secrets.FITBIT_CLIENT_SECRET }}"' >> terraform.tfvars
-          cat terraform.tfvars
+      # - name: Create terraform.tfvars file
+      #   run: |
+      #     cd terraform
+      #     echo 'fitbit_client_id = "${{ secrets.FITBIT_CLIENT_ID }}"' >> terraform.tfvars
+      #     echo 'fitbit_client_secret = "${{ secrets.FITBIT_CLIENT_SECRET }}"' >> terraform.tfvars
+      #     cat terraform.tfvars
 
       - name: Setup AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
